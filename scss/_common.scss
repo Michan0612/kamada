@@ -1,0 +1,182 @@
+/*====================================
+共通スタイル
+======================================*/
+body {
+	font-family: $font-family-base;
+	font-size: $font-size-base;
+	font-weight: $font-weight-base;
+	color: $color-text-base;
+	line-height: $line-height-base;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: $color-background-base;
+	overflow-x: hidden;
+	overflow-wrap: break-word;
+	padding-top: $header-height-pc;
+
+	@include mq("sp") {
+		padding-top: $header-height-sp;
+	}
+}
+
+img {
+	width: 100%;
+	height: auto;
+	border: none;
+}
+
+a {
+  text-decoration: none;
+  color: #082B48;
+}
+
+// a:hover {
+//   opacity: $hover-opacity;
+// }
+
+.container {
+  width: 100%;
+  max-width: $layout-width-inner;
+	margin: auto;
+	@include mq('tab') {
+		padding-left: $padding-tab;
+		padding-right: $padding-tab;
+	}
+
+	@include mq('sp') {
+		padding-left: $padding-sp;
+		padding-right: $padding-sp;
+	}
+}
+
+.clear::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+// インナー
+.inner {
+	height: inherit;
+	max-width: 100%;
+	margin: 0 auto;
+	width: $layout-width-inner;
+
+	@include mq('tab') {
+		padding-left: $padding-tab;
+		padding-right: $padding-tab;
+	}
+
+	@include mq('sp') {
+		padding-left: $padding-sp;
+		padding-right: $padding-sp;
+	}
+}
+
+// -----
+// 補完クラス
+// -----
+
+/*====================================
+PCだけ非表示
+======================================*/
+.hidden-pc {
+	@include mq("pc") {
+		display: none;
+	}
+}
+
+/*====================================
+タブレットだけ非表示
+======================================*/
+.hidden-tab {
+	@include mq("tab-only") {
+		display: none;
+	}
+}
+
+/*====================================
+スマホだけ非表示
+======================================*/
+.hidden-sp {
+	@include mq("sp") {
+		display: none;
+	}
+}
+
+/*====================================
+section
+======================================*/
+.section {
+	padding-top: 100px;
+	padding-bottom: 80px;
+
+	@include mq('sp') {
+		padding-top: 40px;
+	}
+}
+
+.u-section__title {
+	font-size: 42px;
+	font-weight: bold;
+  line-height: 1;
+	padding: 0 0 28px;//下線分の高さを考慮している
+	position: relative;
+	text-align: center;
+
+	&::after {
+		content: "";
+		background-color: $color-main;
+		width: 12%;
+		height: 1px;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+
+		@include mq('pc') {
+			width: 8%;
+		}
+	}
+
+	@include mq('tab') {
+		font-size: 50px;
+		padding-bottom: 28px;
+	}
+
+	@include mq('pc') {
+    font-size: 48px;
+		padding-bottom: 16px;
+	}
+}
+
+// moreボタン
+.button-more {
+	-webkit-appearance: none;
+	background: transparent;
+	text-align: center;
+	border: 1px solid #3EA1D1;
+	color: $color-main;
+  cursor: pointer;
+	display: inline-block;//buttonを囲んでいる要素にtext-align centerとすることで中央寄せに対応させるため
+	padding: 14px 48px;
+	font-size: 14px;
+	font-weight: bold;
+	transition: all 0.3s ease 0s;
+	width:157px;
+	max-width: 100%;
+	line-height: 1.7;
+}
+
+.l-hover-button {
+	&:hover {
+		background: $color-main;
+		color: #fff;
+	}
+}
+
+.l-hover-opacity {
+	&:hover {
+		opacity: 0.7;
+	}
+}

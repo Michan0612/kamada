@@ -1,0 +1,72 @@
+.header {
+	position: relative;
+	width: 100%;
+	background: #fff;
+	top: 0;
+	left: 0;
+	height: $header-height;
+	z-index: map-get($layer, "header");
+
+	> .inner {
+	}
+}
+
+.header-content {
+	display: flex;
+	align-items: center;
+}
+
+.header-logo {
+	margin-right: auto;
+
+	a {
+		transition: all 0.3s ease 0s;
+
+		&:hover {
+			opacity: $opacity;
+		}
+	}
+
+	img {
+		width: 200px;
+	}
+}
+
+.header-nav {
+
+	@include mq("sp") {
+		display: none;
+	}
+
+	ul {
+		display: flex;
+		align-items: center;
+	}
+
+	li {
+		margin-right: 46px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		> a {
+			text-decoration: none;
+			color: $cr-txt;
+			display: block;
+			transition: all 0.3s ease 0s;
+
+			&:hover {
+				opacity: $opacity;
+			}
+		}
+	}
+}
+
+.header-drawer {
+	display: none;
+
+	@include mq("sp") {
+		display: block;
+	}
+}
